@@ -1,0 +1,830 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* background: rgb(185, 40, 170);
+    background: radial-gradient(circle, rgba(185, 40, 170, 0.9395248380129589) 11%, rgba(63, 76, 251, 0.9827213822894169) 36%, rgba(255, 255, 255, 0.9114470842332614) 84%, rgba(255, 255, 255, 1) 97%); */
+    background-image: url('../public/layered-peaks-haikei\ \(1\).svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100%;
+    font-family: oswald, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+#root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#fixedHeading {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 1000000000000;
+}
+
+#userGreeting {
+    background-color: #52b3ff;
+    margin-top: 0;
+}
+
+
+nav {
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.425);
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav ul a,
+nav ul li {
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    height: 100%;
+    transition: 0.5s;
+}
+
+.hamburger-react {
+    display: none;
+    position: fixed;
+}
+
+nav ul a:hover,
+nav ul li:hover,
+nav ul a.active {
+    background-color: navy;
+    color: white;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: 0.5s;
+}
+
+#fourHundredAndFour {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#fourHundredAndFour h5 {
+    font-size: 50px;
+    color: azure;
+}
+
+h1 {
+    text-align: center;
+    padding: 25px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    margin-top: 134px;
+    -webkit-animation: tracking-in-expand-fwd 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    animation: tracking-in-expand-fwd 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+
+p {
+    text-align: justify;
+    padding: 25px;
+    font-size: 15pt;
+    color: white;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+#searchCard {
+    text-align: center;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+#searchCard input {
+    border-radius: 50px;
+    margin: 10px;
+    height: 100%;
+}
+
+
+.businessCards {
+    display: grid;
+    grid-template-columns: 45% 45%;
+    grid-template-rows: auto;
+    gap: 100px;
+    text-align: center;
+    margin-top: 50px;
+    margin: auto;
+    margin-bottom: 15px;
+}
+
+.businessCard {
+    display: flex;
+    flex-direction: column;
+    min-height: 100px;
+    max-height: 1200px;
+    min-width: 200px;
+    max-width: 600px;
+    width: 250px;
+    border-radius: 10%;
+    border: 1px dashed black;
+    background: linear-gradient(90deg, #52b3ff, #c34807);
+    background-size: 300% 300%;
+    animation: change 2s infinite ease-in-out;
+    inline-size: 250px;
+    overflow-wrap: break-word;
+    transition: 0.5s;
+    margin: auto;
+    opacity: 1;
+}
+
+@keyframes change {
+    0% {
+        background-position: 0 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+.businessCard:hover {
+    opacity: 0.5;
+    transform: scale(1.1);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.businessCard img {
+    display: block;
+    min-height: 100px;
+    max-height: 200px;
+    width: 100px;
+    margin: 10px auto 10px;
+    text-align: center;
+}
+
+.businessCard h2 {
+    text-align: center;
+}
+
+.businessCard span {
+    display: block;
+    text-align: center;
+    margin: auto;
+    font-size: 13pt;
+    color: black;
+
+}
+
+.businessCardField p {
+    color: black;
+    font-weight: 200;
+}
+
+.businessCardField,
+.popUpField {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    inline-size: 250px;
+    overflow-wrap: break-word;
+    word-spacing: 1pt;
+}
+
+.businessCardField path,
+.popUpField path {
+    position: relative;
+    left: 0;
+    top: 0;
+    color: white;
+}
+
+.popUpField h2 {
+    color: white;
+    font-weight: 600;
+}
+
+.businessCardButtons {
+    display: flex;
+    margin: 15px;
+    height: 20%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.businessCardButtons button {
+    /* margin: 15px; */
+    padding: 20px;
+}
+
+.businessCardButtons button.delete {
+    background-color: rgb(246, 43, 43);
+}
+
+.businessCardButtons button.edit {
+    background-color: rgb(181, 109, 83);
+}
+
+.signUpForm,
+.logInForm,
+.createCardForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: left;
+    margin: auto;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 500px;
+    min-height: 550px;
+    max-height: 1000px;
+    border-radius: 10%;
+    border: black 2px solid;
+    box-shadow: 5px 9px 128px 39px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 5px 9px 128px 39px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 5px 9px 128px 39px rgba(0, 0, 0, 0.75);
+
+}
+
+.logInForm {
+    height: 550px;
+    margin: auto;
+}
+
+.signUpField,
+.logInField,
+.createCardField {
+    text-align: left;
+    font-size: 25px;
+    margin: auto;
+}
+
+.logInField p,
+.logInField span {
+    font-weight: 100;
+    font-size: 15px;
+}
+
+
+
+.createCardField input,
+.logInField input,
+.signUpField input {
+    width: 350px;
+    height: 45%;
+    border-radius: 50px;
+    font-size: 20px;
+    transition: 0.5s;
+}
+
+.err {
+    transition: 0.5s;
+    border: 2px red solid;
+}
+
+.success {
+    transition: 0.5s;
+    border: 2px green solid;
+}
+
+.inputRules {
+    text-align: center;
+    font-size: 15px;
+}
+
+.inputRules ul {
+    font-size: 12px;
+    text-align: left;
+}
+
+
+.wrongInput {
+    color: red;
+}
+
+.signUpField button,
+.logInField button,
+.createCardField button {
+    display: block;
+    margin: 10px auto;
+    height: 50px;
+    width: 200px;
+    background-color: rgb(74, 48, 216);
+    color: white;
+    border-radius: 100px;
+    border: none;
+    transition: 0.5s;
+}
+
+button:hover {
+    cursor: pointer;
+    opacity: 0.5;
+    transition: 0.5s;
+}
+
+.signUpField span,
+.logInField span,
+.createCardField span {
+    font-size: 18px;
+}
+
+.createCardField .validationSpan {
+    font-size: 10pt;
+}
+
+.loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100vw;
+    height: 100vh;
+    margin: auto;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1000000000000000000000000000000;
+    /* text-align: center; */
+}
+
+
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 150px;
+    margin-top: auto;
+    text-align: center;
+
+    background-color: black;
+    color: white;
+}
+
+footer p {
+    text-align: center;
+    padding: 15px;
+    font-size: 12px;
+    color: white;
+}
+
+.popUp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.717);
+    margin: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10000000000000;
+    -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.popUpField p {
+    color: white;
+
+}
+
+.popUp img {
+    height: 20%;
+    min-width: none;
+    max-width: 40%;
+}
+
+.closePopUP {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+
+    transition: 0.5s;
+    background-color: red;
+    color: white;
+    border: 2px white solid;
+    margin: 10px;
+    border-radius: 15px;
+}
+
+.closePopUP:hover {
+    transition: 0.5s;
+    transform: rotate(360deg);
+}
+
+.scale-out-center {
+    -webkit-animation: scale-out-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    animation: scale-out-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+
+
+@media (max-width: 768px) {
+
+    .hamburger-react {
+        display: block;
+        z-index: 10000001;
+    }
+
+    #hamburgerFixed {
+        position: fixed;
+        top: 50;
+        left: 50;
+        z-index: 10000000000001;
+    }
+
+
+    .scale-out-hor-left {
+        -webkit-animation: scale-out-hor-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        animation: scale-out-hor-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    }
+
+    .scale-in-hor-left {
+        -webkit-animation: scale-in-hor-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: scale-in-hor-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+
+    nav.mobileNav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: rgb(255, 255, 255);
+        width: 100%;
+        min-height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+    }
+
+
+    nav.mobileNav ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    nav.mobileNav ul a,
+    nav.mobileNav ul li {
+        display: inline-block;
+        width: 100%;
+        margin: 25px;
+        color: black;
+    }
+
+    nav {
+        display: none;
+    }
+
+
+    .inputRules ul {
+        font-size: 11px;
+    }
+
+    #searchCard label {
+        display: none;
+    }
+
+    .businessCards {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin: auto;
+        margin-bottom: 15px;
+    }
+
+    .businessCard {
+        display: flex;
+        flex-direction: column;
+        min-height: 200px;
+        max-height: 900px;
+        min-width: 50px;
+        max-width: 400px;
+        border-radius: 10%;
+        background-color: rgb(107, 186, 117);
+        inline-size: 250px;
+        overflow-wrap: break-word;
+        transition: 0.5s;
+        margin: auto;
+    }
+
+    .signUpForm,
+    .logInForm,
+    .createCardForm {
+        min-width: 50px;
+        max-width: 375px;
+        min-height: 100px;
+        max-height: 1550px;
+        border-radius: 10%;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .logInField,
+    .signUpField,
+    .createCardField {
+        font-size: 25px;
+        margin: 10px;
+    }
+
+    .popUp {
+        width: 100%;
+        height: 100%;
+    }
+
+    .popUpField {
+        padding: 0px;
+    }
+
+    .popUpField p,
+    .popUpField h2 {
+        font-weight: normal;
+        font-size: 18px;
+    }
+
+    .popUp img {
+        min-height: 15%;
+        max-height: 20%;
+        margin: 10px;
+    }
+
+    .closePopUP {
+        position: fixed;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 281px) {
+
+    .signUpForm,
+    .logInForm,
+    .createCardForm {
+        min-width: 50px;
+        max-width: 275px;
+        min-height: 100px;
+        max-height: 1550px;
+        border-radius: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .logInField,
+    .signUpField,
+    .createCardField {
+        margin: 5px;
+    }
+
+    .logInField label,
+    .signUpField label,
+    .createCardField label {
+        font-size: 17px;
+    }
+
+    .createCardField input,
+    .logInField input,
+    .signUpField input {
+        width: 100%;
+        font-size: 15px;
+        transition: 0.5s;
+    }
+
+
+    .signUpField button,
+    .logInField button,
+    .createCardField button {
+        height: 50px;
+        width: 150px;
+    }
+
+    .popUp img {
+        height: 1px;
+        margin: 10px;
+    }
+
+
+    .popUpField {
+        padding: 0px;
+    }
+
+    .popUpField p,
+    .popUpField h2 {
+        font-weight: normal;
+        font-size: 18px;
+    }
+
+    span.validationSpan {
+        font-size: 9px;
+    }
+
+    #validationSpan {
+        font-size: 10px;
+    }
+}
+
+
+@-webkit-keyframes scale-out-hor-left {
+    0% {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        opacity: 1;
+    }
+}
+
+@keyframes scale-out-hor-left {
+    0% {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes scale-in-hor-left {
+    0% {
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transform-origin: 0% 0%;
+        transform-origin: 0% 0%;
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        -webkit-transform-origin: 0% 0%;
+        transform-origin: 0% 0%;
+        opacity: 1;
+    }
+}
+
+@keyframes scale-in-hor-left {
+    0% {
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transform-origin: 0% 0%;
+        transform-origin: 0% 0%;
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        -webkit-transform-origin: 0% 0%;
+        transform-origin: 0% 0%;
+        opacity: 1;
+    }
+}
+
+
+@-webkit-keyframes tracking-in-expand-fwd {
+    0% {
+        letter-spacing: -0.5em;
+        -webkit-transform: translateZ(-700px);
+        transform: translateZ(-700px);
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0.6;
+    }
+
+    100% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        opacity: 1;
+    }
+}
+
+@keyframes tracking-in-expand-fwd {
+    0% {
+        letter-spacing: -0.5em;
+        -webkit-transform: translateZ(-700px);
+        transform: translateZ(-700px);
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0.6;
+    }
+
+    100% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes scale-in-center {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes scale-in-center {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+@-webkit-keyframes scale-out-center {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 1;
+    }
+}
+
+@keyframes scale-out-center {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 1;
+    }
+}
