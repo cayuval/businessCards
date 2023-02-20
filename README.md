@@ -17,7 +17,7 @@ And the backend
 node app
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:http://127.0.0.1:5173/](http://localhost:http://127.0.0.1:5173/) with your browser to see the result.
 
 
 
